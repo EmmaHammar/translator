@@ -5,11 +5,11 @@ import Result from "./components/Result";
 class App extends React.Component {
 
   state = {
-    text: "Detta vill jag översätta...",
+    text: "",
   }
 
-  translateText = (getText) => {
-    console.log("callback translateText från App.js");
+  saveText = (getText) => {
+    // console.log("callback getText från saveText App.js");
     this.setState({text: getText});
 
     //spara statet getText
@@ -19,8 +19,8 @@ class App extends React.Component {
     return (
       <>
         <h1>Translator</h1>
-        <Translate text={this.state.text} getNewText={this.translateText}/>
-        <Result /> 
+        <Translate text={this.state.text} getNewText={this.saveText}/>
+        <Result showResult={this.state.text}/> 
       </>
     )
   }

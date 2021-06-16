@@ -9,8 +9,11 @@ Sidan skall byggas modulärt, dvs du skall kunna lägga till nya överstätnings
 Tekniska krav:
 
 Varje input fält för att skriva in text skall hanteras som kopior av samma komponent. Med attribut (props) skall du kunna skapa nya input fält som översätter till andra språk.
+
 Det skall finnas 1 st översättningskomponent som alla språk som skall översättas använder.
+
 Det skall finnas 1 st resultat komponent som visar översättningen från samtliga input komponenter.
+
 Översättnings API
 https://mymemory.translated.net/doc/spec.php
 
