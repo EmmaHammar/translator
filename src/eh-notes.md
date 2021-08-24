@@ -29,5 +29,7 @@ Skiss:
 
 ==
 TO DO:
-Skicka inputtext till API för översättning
-Ta emot och printa ut översatt text
+Göra en onChange eller liknande på select för att översätta till det valda språket. 
+Fånga vilket språk som är valt
+Skicka in det som selectTo
+Printa ut

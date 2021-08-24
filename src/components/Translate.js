@@ -2,13 +2,14 @@ import React, { Component } from "react";
 
 class Translate extends Component {
 
+    //inte sätta state här?
     state = {
-        text: this.props.text,
+        text: "",
+        chosenLanguage: "",
     }
 
     onChange = (evt) => {
         this.setState({text: evt.target.value})
-        
     }
 
     onSubmit = (evt) => {
@@ -16,21 +17,20 @@ class Translate extends Component {
         let textForTranslation=this.state.text;
         console.log("textForTranslation to API:", textForTranslation);
 
-        //fetch API här?
-
-        //TO DO: göra dear World i länken till dynamiskt
-        fetch(`https://api.mymemory.translated.net/get?q=${textForTranslation}!&langpair=en|it`) 
-        .then( (response) => response.json() )
-        .then( function(translation) {
+        //fetch API:
+        fetch(`https://api.mymemory.translated.net/get?q=${textForTranslation}!&langpair=${this.props.selectFrom}|${this.props.selectTo}`) 
+        .then( res => res.json() )
+        .then( translation => {
             console.log("translated text:", translation.responseData.translatedText);
+
+            //Skicka översatta texten som prop till app.js, via funktionen som kallas på i Translate??
+            //vår callback är getNewText - skicka tillbaka nya statet till App.js (som sen ska spara det)
+            this.props.getNewText( translation.responseData.translatedText )
+        
         })
 
         evt.preventDefault();
-        console.log("klick translateBtn");
-
-        //vår callback är getNewText - skicka tillbaka nya statet till App.js (som sen ska spara det):OBS ska ändra så att den skickar översatta texten
-        this.props.getNewText(this.state.text)
-        
+        // console.log("klick translateBtn");
     }
 
     render() {
