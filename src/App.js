@@ -6,6 +6,9 @@ class App extends React.Component {
 
   state = {
     text: "",
+    //1 state: textToTranslate
+    //1 state: translatedText
+    
   }
 
   saveText = (getText) => {
@@ -27,3 +30,5 @@ class App extends React.Component {
 }
 
 export default App;
+
+//Translate-rad ska kopieras för varje språk
