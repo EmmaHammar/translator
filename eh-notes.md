@@ -27,4 +27,7 @@ Skiss:
 1 inputfält: write text
 1 knapp: translateBtn
 
-
+==
+TO DO:
+Skicka inputtext till API för översättning
+Ta emot och printa ut översatt text
