@@ -16,7 +16,7 @@ class Translate extends Component {
         let textForTranslation=this.state.text;
         console.log("textForTranslation to API:", textForTranslation);
 
-        //fetch API?
+        //fetch API? TESTA LÄGGA IN!!!
 
         evt.preventDefault();
         console.log("klick translateBtn");
@@ -27,6 +27,20 @@ class Translate extends Component {
     }
 
     render() {
+        //fetch
+        fetch(`https://api.mymemory.translated.net/set?seg=Hello World!&tra=Ciao Mondo!&langpair=en|it`) 
+        .then( (response) => response.json() )
+        .then( function(translation) {
+            console.log("translation from API:", translation);
+        })
+
+        // fetch(`https://en.wikipedia.org/w/rest.php/v1/search/page?q=${targetCity}&limit=1`)
+        // .then((response) => response.json())
+        // .then(function(wiki){
+        //     getWiki(wiki);
+        //     console.log(wiki);
+        // });
+        
         return(
             <form onSubmit={this.onSubmit}>
                 <textarea type="text" placeholder="Write something..." value={this.state.text} onChange={this.onChange}></textarea> <br></br>
